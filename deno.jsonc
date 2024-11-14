@@ -1,0 +1,17 @@
+{
+  "name": "@localx/sandbox",
+  "version": "0.0.0",
+  "exports": "./src/index.ts",
+  "tasks": {
+    "dev": "deno run --allow-all ./src/index.ts",
+    "dev:watch": "deno run --allow-all --watch ./src/index.ts",
+  },
+  "imports": {
+    "@cliffy/command": "jsr:@cliffy/command@^1.0.0-rc.7",
+    "@cliffy/keypress": "jsr:@cliffy/keypress@^1.0.0-rc.7",
+    "@cliffy/prompt": "jsr:@cliffy/prompt@^1.0.0-rc.7",
+    "@std/assert": "jsr:@std/assert@1",
+    "hono": "npm:hono@4"
+  },
+  "license": "MIT"
+}

@@ -1,5 +1,5 @@
 import { program } from "./program.ts";
 
 export function runCLI() {
-  program.parse();
+  program.parse(Deno.args);
 }

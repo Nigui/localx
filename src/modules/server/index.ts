@@ -7,7 +7,7 @@ const DEFAULT_PORT = 80;
 let server: Deno.HttpServer;
 
 function getServer() {
-  if (!server) throw new Error("");
+  if (!server) throw new Error("Server is not initialized");
   return server;
 }
 
