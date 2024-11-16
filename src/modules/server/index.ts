@@ -20,3 +20,7 @@ export function startServer(config: ServerConfig) {
 export async function stopServer() {
   await getServer().shutdown();
 }
+
+export function getServerInfos() {
+  return {};
+}
