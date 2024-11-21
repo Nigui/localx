@@ -1,11 +1,11 @@
 {
-  "name": "@localx/sandbox",
-  "version": "0.0.0",
+  "name": "@localx/cli",
+  "version": "0.1.0",
   "exports": "./src/index.ts",
   "tasks": {
     "dev": "deno run --allow-all ./src/index.ts",
     "dev:watch": "deno run --allow-all --watch ./src/index.ts",
-    "build": "deno compile --allow-all --output ./dist ./src/index.ts" 
+    "build": "deno compile --allow-all --output ./dist/localx ./src/index.ts" 
   },
   "imports": {
     "@cliffy/ansi": "jsr:@cliffy/ansi@^1.0.0-rc.7",

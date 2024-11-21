@@ -11,12 +11,26 @@ const themeColors = {
 type LogOptions = Partial<{ prefix: string; color: keyof typeof themeColors }>;
 
 function log({ prefix, color }: LogOptions = {}) {
-  return (message: string) =>
-    console.log(prefix, themeColors[color ?? "default"](message));
+  return (...args: any[]) => {
+    prefix && args.unshift(prefix);
+    console.log(
+      ...args
+        .map((a) =>
+          typeof a === "string"
+            ? a
+            : typeof a === "object"
+            ? JSON.stringify(a)
+            : new String(a).toString()
+        )
+        .map(themeColors[color ?? "default"])
+    );
+  };
 }
 
 export const logger = {
-  print: log(),
+  print: (args: unknown, options?: LogOptions) => {
+    log(options)(...(Array.isArray(args) ? args : [args]));
+  },
   success: log({ prefix: "✅", color: "success" }),
   info: log({ prefix: "ℹ️", color: "info" }),
   error: log({ prefix: "❌", color: "error" }),

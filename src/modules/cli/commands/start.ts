@@ -1,23 +1,20 @@
 import { Command } from "@cliffy/command";
-import { loadConfig } from "../../config/index.ts";
-import { startServer } from "../../server/index.ts";
-import { logger } from "../helpers/print.ts";
+import { startServerFromPath } from "../../server/index.ts";
 import { pressAnyKey } from "../helpers/prompt.ts";
-
-const { success } = logger;
+import { exit } from "../helpers/exit.ts";
+import { CONFIG_FILE_PATH_DEFAULT } from "../../config/constants.ts";
 
 const command = new Command()
   .description("Run local backend")
   .option("-c, --config <string>", "path to configuration file", {
-    default: "./config.localx",
+    default: CONFIG_FILE_PATH_DEFAULT,
   })
   .action(async ({ config: configFile }) => {
-    const config = loadConfig(configFile);
-    startServer(config);
+    await startServerFromPath(configFile);
 
     await pressAnyKey();
 
-    success("👋 Good bye.");
+    exit();
   });
 
 export default {
