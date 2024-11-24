@@ -6,7 +6,9 @@ export async function loadConfig(
 ): Promise<Config> {
   const path = await Deno.realPath(filePath);
 
-  const file = await import(path);
+  const content = await Deno.readTextFile(path);
+
+  const file = await import(`data:text/javascript,${content}`);
 
   return {
     port: file.port || DEFAULT_SERVER_PORT,
