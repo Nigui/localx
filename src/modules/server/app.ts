@@ -1,9 +1,9 @@
 import { Hono } from "hono";
-import type { Endpoint } from "../config/types.ts";
+import type { EndpointConfig } from "../config/types.ts";
 
 const app = new Hono();
 
-export function registerEndpoint(config: Endpoint) {
+export function registerEndpoint(config: EndpointConfig) {
   app.on(config.method, [config.path], (response) =>
     response.text(config.response)
   );

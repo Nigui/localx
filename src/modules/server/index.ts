@@ -1,9 +1,9 @@
 import { loadConfig } from "../config/index.ts";
-import type { Config } from "../config/types.ts";
+import type { ConfigFile } from "../config/types.ts";
 import { handler, registerEndpoint } from "./app.ts";
 
 let server: Deno.HttpServer | undefined;
-let config: Config | undefined;
+let config: Required<ConfigFile> | undefined;
 
 function getServer() {
   if (!server) throw new Error("Server is not initialized");
@@ -14,7 +14,7 @@ export async function startServerFromPath(configPath: string) {
   await loadConfig(configPath).then(startServer);
 }
 
-export function startServer(_config: Config) {
+export function startServer(_config: Required<ConfigFile>) {
   config = _config;
   const { endpoints, port } = config;
   endpoints.forEach(registerEndpoint);
