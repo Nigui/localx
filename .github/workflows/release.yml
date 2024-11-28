@@ -3,6 +3,8 @@ name: Release
 on:
   push:
     branches: ["master"]
+  pull_request:
+    branches: ["master"]
 
 permissions:
   contents: write
@@ -10,7 +12,7 @@ permissions:
 
 jobs:
   setup-build-test:
-    uses: Nigui/localx/.github/workflows/setup-test.yml@master
+    uses: Nigui/localx/.github/workflows/setup-test.yml@chore/setup-gha
 
   release:
     runs-on: ubuntu-latest

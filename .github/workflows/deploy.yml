@@ -4,10 +4,12 @@ on:
   push:
     tags:
       - "v[0-9]+.[0-9]+.[0-9]+"
+  pull_request:
+    branches: ["master"]
 
 jobs:
   setup-build-test:
-    uses: Nigui/localx/.github/workflows/setup-test.yml@master
+    uses: Nigui/localx/.github/workflows/setup-test.yml@chore/setup-gha
 
   publish:
     name: Publish
