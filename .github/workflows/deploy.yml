@@ -7,7 +7,7 @@ on:
 
 jobs:
   setup-build-test:
-    uses: Nigui/localx/.github/workflows/setup-test.yml
+    uses: Nigui/localx/.github/workflows/setup-test.yml@master
 
   publish:
     name: Publish

@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   setup-build-test:
-    uses: Nigui/localx/.github/workflows/setup-test.yml
+    uses: Nigui/localx/.github/workflows/setup-test.yml@master
 
   release:
     runs-on: ubuntu-latest
