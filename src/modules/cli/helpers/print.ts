@@ -11,7 +11,7 @@ const themeColors = {
 type LogOptions = Partial<{ prefix: string; color: keyof typeof themeColors }>;
 
 function log({ prefix, color }: LogOptions = {}) {
-  return (...args: any[]) => {
+  return (...args: unknown[]) => {
     prefix && args.unshift(prefix);
     console.log(
       ...args
