@@ -5,7 +5,9 @@
   "tasks": {
     "dev": "deno run --allow-all ./src/index.ts",
     "dev:watch": "deno run --allow-all --watch ./src/index.ts",
-    "build": "deno compile --allow-all --output ./dist/localx ./src/index.ts" 
+    "build": "deno compile --allow-all --output ./dist/localx ./src/index.ts",
+    "release": "deno run --allow-all npm:semantic-release",
+    "release:test": "deno task release --dry-run"
   },
   "imports": {
     "@cliffy/ansi": "jsr:@cliffy/ansi@^1.0.0-rc.7",
