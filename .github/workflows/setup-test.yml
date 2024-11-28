@@ -21,11 +21,11 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Run prettier
-        run: deno fmt --check
+      - name: Run formatter
+        run: deno task format:check
 
       - name: Run linter
-        run: deno lint
+        run: deno task lint:check
 
       - name: Run tests
-        run: deno test -A
+        run: deno task test

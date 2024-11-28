@@ -3,11 +3,16 @@
   "version": "0.1.0",
   "exports": "./src/index.ts",
   "tasks": {
+    "build": "deno compile --allow-all --output ./dist/localx ./src/index.ts",
     "dev": "deno run --allow-all ./src/index.ts",
     "dev:watch": "deno run --allow-all --watch ./src/index.ts",
-    "build": "deno compile --allow-all --output ./dist/localx ./src/index.ts",
+    "format": "deno fmt",
+    "format:check": "deno task format --check",
+    "lint": "deno lint",
+    "lint:fix": "deno task lint --fix",
     "release": "deno run --allow-all npm:semantic-release",
-    "release:test": "deno task release --dry-run"
+    "release:test": "deno task release --dry-run",
+    "test": "deno test -A --permit-no-files"
   },
   "imports": {
     "@cliffy/ansi": "jsr:@cliffy/ansi@^1.0.0-rc.7",
