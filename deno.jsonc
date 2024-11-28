@@ -8,8 +8,8 @@
     "dev:watch": "deno run --allow-all --watch ./src/index.ts",
     "format": "deno fmt",
     "format:check": "deno task format --check",
-    "lint": "deno lint",
-    "lint:fix": "deno task lint --fix",
+    "lint": "deno task lint --fix",
+    "lint:check": "deno lint",
     "release": "deno run --allow-all npm:semantic-release",
     "release:test": "deno task release --dry-run",
     "test": "deno test -A --permit-no-files"
