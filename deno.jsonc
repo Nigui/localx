@@ -23,5 +23,11 @@
     "hono": "npm:hono@4",
     "zod": "npm:zod@3"
   },
+  "publish": {
+    "exclude": [
+      ".github",
+      ".releaserc"
+    ]
+  },
   "license": "MIT"
 }
