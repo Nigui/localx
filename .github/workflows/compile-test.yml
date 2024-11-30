@@ -15,7 +15,7 @@ jobs:
       - uses: Nigui/localx/.github/actions/setup@master
       - name: Compile
         run: deno task build
-  
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -36,5 +36,3 @@ jobs:
       - uses: Nigui/localx/.github/actions/setup@master
       - name: Run formatter
         run: deno task format:check
-
-      
