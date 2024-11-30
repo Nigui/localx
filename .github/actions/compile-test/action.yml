@@ -1,0 +1,13 @@
+name: setup project
+description: Setup project with dependencies
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout project
+      uses: actions/checkout@v4
+
+    - name: Setup Deno
+      uses: denoland/setup-deno@v2
+      with:
+        deno-version: v2.x
