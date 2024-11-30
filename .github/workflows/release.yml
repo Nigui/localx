@@ -3,8 +3,6 @@ name: Release
 on:
   push:
     branches: ["master"]
-  pull_request:
-    branches: ["master"]
 
 permissions:
   contents: write
@@ -19,5 +17,6 @@ jobs:
     needs: setup-build-test
 
     steps:
+      - uses: ./.github/actions/setup
       - name: Run semantic-release
         run: deno task release:test

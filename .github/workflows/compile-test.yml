@@ -1,4 +1,4 @@
-name: Setup and Test
+name: Compile and Test
 
 on:
   pull_request:
@@ -9,17 +9,11 @@ permissions:
   contents: read
 
 jobs:
-  build-test-lint:
+  compile-test-lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup repo
-        uses: actions/checkout@v4
-
-      - name: Setup Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
+      - uses: ./.github/actions/setup
 
       - name: Run formatter
         run: deno task format:check
@@ -29,3 +23,6 @@ jobs:
 
       - name: Run tests
         run: deno task test
+
+      - name: Compile
+        run: deno task build

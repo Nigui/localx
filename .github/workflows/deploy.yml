@@ -9,7 +9,7 @@ on:
 
 jobs:
   setup-build-test:
-    uses: Nigui/localx/.github/workflows/setup-test.yml@chore/setup-gha
+    uses: ./.github/workflows/setup-test.yml
 
   publish:
     name: Publish
@@ -21,6 +21,7 @@ jobs:
       contents: read
 
     steps:
+      - uses: ./.github/actions/setup 
       - name: Publish
         run: deno publish --dry-run --token $JSR_LOCALX_TOKEN
 
@@ -34,6 +35,8 @@ jobs:
       contents: read
 
     steps:
+      - uses: ./.github/actions/setup
+      
       - name: Build
         run: deno task build
 
