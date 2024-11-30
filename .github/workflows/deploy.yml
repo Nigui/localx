@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: Nigui/localx/.github/actions/setup@master
       - name: Publish
-        run: deno publish --dry-run --token $JSR_LOCALX_TOKEN
+        run: deno publish --dry-run
 
   deploy:
     name: deploy
