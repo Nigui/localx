@@ -4,7 +4,7 @@ on:
   push:
     tags:
       - "v[0-9]+.[0-9]+.[0-9]+"
-  pull_request:
+  pull_request: # todo remove
     branches: ["master"]
 
 jobs:

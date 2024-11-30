@@ -3,6 +3,8 @@ name: Release
 on:
   push:
     branches: ["master"]
+  pull_request: # todo remove
+    branches: ["master"]
 
 permissions:
   contents: write
