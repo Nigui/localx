@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./.github/actions/setup
+      - uses: Nigui/localx/.github/actions/setup@master
 
       - name: Run formatter
         run: deno task format:check
