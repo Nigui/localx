@@ -21,7 +21,7 @@ jobs:
       contents: read
 
     steps:
-      - uses: Nigui/localx/.github/actions/setup@master 
+      - uses: Nigui/localx/.github/actions/setup@master
       - name: Publish
         run: deno publish --dry-run --token $JSR_LOCALX_TOKEN
 
@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - uses: Nigui/localx/.github/actions/setup@master
-      
+
       - name: Build
         run: deno task build
 

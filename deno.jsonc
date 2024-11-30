@@ -8,7 +8,7 @@
     "dev:watch": "deno run --allow-all --watch ./src/index.ts",
     "format": "deno fmt",
     "format:check": "deno task format --check",
-    "lint": "deno task lint --fix",
+    "lint": "deno task lint:check --fix",
     "lint:check": "deno lint",
     "release": "deno run --allow-all npm:semantic-release",
     "release:test": "deno task release --dry-run",
