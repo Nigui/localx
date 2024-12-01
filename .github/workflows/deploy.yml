@@ -1,0 +1,44 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+  pull_request: # todo remove
+    branches: ["master"]
+
+jobs:
+  compile-test:
+    uses: ./.github/workflows/compile-test.yml
+
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    needs: compile-test
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: Nigui/localx/.github/actions/setup@master
+      - name: Publish
+        run: deno publish --dry-run
+
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: compile-test
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: Nigui/localx/.github/actions/setup@master
+
+      - name: Build
+        run: deno task build
+
+      - name: Deploy
+        run: echo "Deploy CLI executable"

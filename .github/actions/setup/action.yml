@@ -1,11 +1,22 @@
 name: setup project
 description: Setup project with dependencies
 
+inputs:
+  cache-dir:
+    description: Path of cached files
+    default: ~/.deno/cache
+
 runs:
   using: "composite"
   steps:
     - name: Checkout project
       uses: actions/checkout@v4
+
+    - name: Cache Gradle packages
+      uses: actions/cache@v3
+      with:
+        key: deno-cache-${{ secrets.CACHE_VERSION }}-${{ runner.os }}-${{ hashFiles('deno.lock') }}
+        path: ${{ inputs.cache-dir }}
 
     - name: Setup Deno
       uses: denoland/setup-deno@v2

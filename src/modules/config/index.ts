@@ -3,7 +3,7 @@ import type { ConfigFile } from "./types.ts";
 import { validate } from "./validation.ts";
 
 export async function loadConfig(
-  filePath: string = CONFIG_FILE_PATH_DEFAULT
+  filePath: string = CONFIG_FILE_PATH_DEFAULT,
 ): Promise<Required<ConfigFile>> {
   const path = await Deno.realPath(filePath);
 

@@ -11,7 +11,7 @@ const themeColors = {
 type LogOptions = Partial<{ prefix: string; color: keyof typeof themeColors }>;
 
 function log({ prefix, color }: LogOptions = {}) {
-  return (...args: any[]) => {
+  return (...args: unknown[]) => {
     prefix && args.unshift(prefix);
     console.log(
       ...args
@@ -22,7 +22,7 @@ function log({ prefix, color }: LogOptions = {}) {
             ? JSON.stringify(a)
             : new String(a).toString()
         )
-        .map(themeColors[color ?? "default"])
+        .map(themeColors[color ?? "default"]),
     );
   };
 }
@@ -50,6 +50,6 @@ export function intro() {
   console.log(
     "\nWelcome to -\n",
     colors.cyan(toolName),
-    "\n\t- Command line tool.\n\n"
+    "\n\t- Command line tool.\n\n",
   );
 }
