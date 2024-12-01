@@ -1,4 +1,4 @@
-name: Deploy CLI
+name: Deploy
 
 on:
   push:
